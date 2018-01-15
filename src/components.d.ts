@@ -8,29 +8,29 @@ import '@stencil/router';
 
 
 import {
-  ScopeTask as AppScopeTask
-} from './pages/app-scope-task/app-scope-task';
+  AppVotesCounted as AppVotesCounted
+} from './pages/app-votes-counted/app-votes-counted';
 
 declare global {
-  interface HTMLAppScopeTaskElement extends AppScopeTask, HTMLElement {
+  interface HTMLAppVotesCountedElement extends AppVotesCounted, HTMLElement {
   }
-  var HTMLAppScopeTaskElement: {
-    prototype: HTMLAppScopeTaskElement;
-    new (): HTMLAppScopeTaskElement;
+  var HTMLAppVotesCountedElement: {
+    prototype: HTMLAppVotesCountedElement;
+    new (): HTMLAppVotesCountedElement;
   };
   interface HTMLElementTagNameMap {
-    "app-scope-task": HTMLAppScopeTaskElement;
+    "app-votes-counted": HTMLAppVotesCountedElement;
   }
   interface ElementTagNameMap {
-    "app-scope-task": HTMLAppScopeTaskElement;
+    "app-votes-counted": HTMLAppVotesCountedElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "app-scope-task": JSXElements.AppScopeTaskAttributes;
+      "app-votes-counted": JSXElements.AppVotesCountedAttributes;
     }
   }
   namespace JSXElements {
-    export interface AppScopeTaskAttributes extends HTMLAttributes {
+    export interface AppVotesCountedAttributes extends HTMLAttributes {
       match?: any;
     }
   }
