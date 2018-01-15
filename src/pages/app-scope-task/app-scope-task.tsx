@@ -21,12 +21,13 @@ export class ScopeTask
       <div>
         <header-component projectName={projectName}></header-component>
         <form>
-          <label>Scope Task</label>
+          <label><b>Scope Task:</b></label>
+          <p>A user can add other users to the project</p>
           <br/>
-          <input type="text" placeholder="scope task" value={this.hours} onInput={() => this.handleChange(event)}/>
+          <input type="number" placeholder="scope task" value={this.hours} onInput={() => this.handleChange(event)}/>
           <button>hours</button>
         </form>
-
+        <vote-counter-component votes="5"></vote-counter-component>
         <footer-component name="SUBMIT"></footer-component>
       </div>
     );

@@ -1,11 +1,11 @@
 import { Component } from '@stencil/core';
 
 @Component({
-  tag: 'voter-component',
-  styleUrl: 'voter-component.scss'
+  tag: 'votes-counted-component',
+  styleUrl: 'votes-counted-component.scss'
 })
 
-export class VoterComponent {
+export class VotesCountedComponent {
 
   render(){
     return (

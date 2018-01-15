@@ -8,30 +8,30 @@ import '@stencil/router';
 
 
 import {
-  VoterComponent as VoterComponent
-} from './components/voter-component/voter-component';
+  ScopeTask as AppScopeTask
+} from './pages/app-scope-task/app-scope-task';
 
 declare global {
-  interface HTMLVoterComponentElement extends VoterComponent, HTMLElement {
+  interface HTMLAppScopeTaskElement extends AppScopeTask, HTMLElement {
   }
-  var HTMLVoterComponentElement: {
-    prototype: HTMLVoterComponentElement;
-    new (): HTMLVoterComponentElement;
+  var HTMLAppScopeTaskElement: {
+    prototype: HTMLAppScopeTaskElement;
+    new (): HTMLAppScopeTaskElement;
   };
   interface HTMLElementTagNameMap {
-    "voter-component": HTMLVoterComponentElement;
+    "app-scope-task": HTMLAppScopeTaskElement;
   }
   interface ElementTagNameMap {
-    "voter-component": HTMLVoterComponentElement;
+    "app-scope-task": HTMLAppScopeTaskElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "voter-component": JSXElements.VoterComponentAttributes;
+      "app-scope-task": JSXElements.AppScopeTaskAttributes;
     }
   }
   namespace JSXElements {
-    export interface VoterComponentAttributes extends HTMLAttributes {
-      
+    export interface AppScopeTaskAttributes extends HTMLAttributes {
+      match?: any;
     }
   }
 }
