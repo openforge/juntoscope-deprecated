@@ -10,12 +10,17 @@ Stencil also enables a number of key capabilities on top of Web Components, in p
 
 ## Getting Started
 
-To start a new project using Stencil, clone this repo to a new directory:
+Clone this repository:
 
 ```bash
-git clone https://github.com/ionic-team/stencil-starter.git my-app
-cd my-app
-git remote rm origin
+git clone git@bitbucket.org:webjuntollc/juntoscope.git
+cd juntoscope
+```
+
+Be sure you are using version 8 of node
+If you have node version manager installed, run this command:
+```
+nvm use 8 
 ```
 
 and run:
