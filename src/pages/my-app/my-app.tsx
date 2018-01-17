@@ -28,6 +28,9 @@ export class MyApp {
             <stencil-route url='/app-votes-counted/:name' component='app-votes-counted'>
             </stencil-route>
 
+            <stencil-route url='/app-results/:name/:result' component='app-results'>
+            </stencil-route>
+
           </stencil-router>
         </main>
       </div>
