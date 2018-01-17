@@ -12,6 +12,7 @@ export class MyApp {
       <div>
         <main>
           <stencil-router>
+
             <stencil-route url='/' component='app-home' exact={true}>
             </stencil-route>
 
@@ -22,6 +23,9 @@ export class MyApp {
             </stencil-route>
 
             <stencil-route url='/app-scope-task/:name' component='app-scope-task'>
+            </stencil-route>
+
+            <stencil-route url='/app-votes-counted/:name' component='app-votes-counted'>
             </stencil-route>
 
           </stencil-router>

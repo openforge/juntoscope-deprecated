@@ -28,7 +28,10 @@ export class ScopeTask
           <button>hours</button>
         </form>
         <vote-counter-component votes="5"></vote-counter-component>
-        <footer-component name="SUBMIT"></footer-component>
+
+        <stencil-route-link url={`/app-votes-counted/${projectName}`}>
+         <footer-component name="SUBMIT"></footer-component>
+        </stencil-route-link>
       </div>
     );
   }

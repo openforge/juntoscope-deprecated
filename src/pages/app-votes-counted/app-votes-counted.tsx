@@ -31,9 +31,7 @@ export class AppVotesCounted
          <votes-counted-component value="7.25" description="Average"></votes-counted-component>
          <votes-counted-component value="8.75" description="Max"></votes-counted-component>
 
-         {/* pass isCustom="true" into this component -- sometimes it works, sometimes it won't build */}
-         <votes-counted-component value="--" description="Custom"></votes-counted-component>
-
+         <votes-counted-component value="--" isCustom="true"></votes-counted-component>
          <votes-counted-component value="7" description=""></votes-counted-component>
          <votes-counted-component value="7" description=""></votes-counted-component>
          <votes-counted-component value="8.75" description=""></votes-counted-component>
