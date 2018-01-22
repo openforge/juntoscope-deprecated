@@ -16,7 +16,9 @@
   },
   "dependencies": {
     "@stencil/core": "next",
-    "@stencil/router": "latest"
+    "@stencil/router": "latest",
+    "express": "^4.15.2",
+    "socket.io": "^2.0.4"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",
