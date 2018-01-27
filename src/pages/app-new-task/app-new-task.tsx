@@ -1,4 +1,5 @@
 import { Component, State, Prop } from '@stencil/core';
+import { connection } from './../../connection';
 
 @Component({
   tag: 'app-new-task',
@@ -10,10 +11,15 @@ export class AppNewTask {
 
   @Prop() projectLink: string = 'http://www.google.com/';
 
-  @State() tasks: any;
+  @State() value: any;
+
+  handleSubmit(e) {
+    e.preventDefault()
+    connection.emit('tasks', this.value)
+  }
 
   handleChange(event) {
-    this.tasks = event.target.value
+    this.value = event.target.value;
   }
 
   render() {
@@ -22,16 +28,19 @@ export class AppNewTask {
     return (
       <div>
         <header-component projectName={projectName}></header-component>
-        <form>
-          <label>
-            <b>Create Tasks. A new line creates a new task</b>
-          </label>
-          <br/>
-            <textarea placeholder="Enter tasks/user stories" value={this.tasks} onInput={() => this.handleChange(event)}/>
-            <br/>
-          <input type="submit" value="Submit" />
-        </form>
-        <stencil-route-link url={`/app-scope-task/${projectName}`}>
+
+        <form onSubmit={(e) => this.handleSubmit(e)}>
+        <label>
+          Enter a task:
+          <textarea value={this.value} onInput={(event) => this.handleChange(event)} />
+        </label>
+        <input type="submit" value="Submit" />
+
+        <br />
+        { this.value }
+      </form>
+
+        <stencil-route-link url={`/app-scope-task/${projectName}/${this.value}`}>
           <footer-component name="NEXT"></footer-component>
         </stencil-route-link>
       </div>

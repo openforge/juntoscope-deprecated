@@ -17,13 +17,14 @@ export class AppVotesCounted
 
   render() {
     const projectName = this.match.params.name
+    const task = this.match.params.value
 
     return (
       <div>
         <header-component projectName={projectName}></header-component>
         <form>
           <label><b>Scope Task:</b></label>
-          <p>A user can add other users to the project</p>
+          <p>{ task }</p>
         </form>
 
         <p><b>Results:</b></p>

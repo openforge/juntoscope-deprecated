@@ -5,6 +5,7 @@ import { Component } from '@stencil/core';
   tag: 'my-app',
   styleUrl: 'my-app.scss'
 })
+
 export class MyApp {
 
   render() {
@@ -22,10 +23,10 @@ export class MyApp {
             <stencil-route url='/app-new-task/:name' component='app-new-task'>
             </stencil-route>
 
-            <stencil-route url='/app-scope-task/:name' component='app-scope-task'>
+            <stencil-route url='/app-scope-task/:name/:value' component='app-scope-task'>
             </stencil-route>
 
-            <stencil-route url='/app-votes-counted/:name' component='app-votes-counted'>
+            <stencil-route url='/app-votes-counted/:name/:value' component='app-votes-counted'>
             </stencil-route>
 
           </stencil-router>
