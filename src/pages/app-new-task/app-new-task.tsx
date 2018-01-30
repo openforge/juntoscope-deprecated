@@ -13,13 +13,16 @@ export class AppNewTask {
 
   @State() value: any;
 
+  @State() taskList = [];
+
   handleSubmit(e) {
     e.preventDefault()
-    connection.emit('tasks', this.value)
   }
 
   handleChange(event) {
-    this.value = event.target.value;
+    this.value = event.value
+    this.taskList = this.value.split('\n');
+    connection.emit('tasks', this.taskList)
   }
 
   render() {
@@ -31,16 +34,20 @@ export class AppNewTask {
 
         <form onSubmit={(e) => this.handleSubmit(e)}>
         <label>
-          Enter a task:
-          <textarea value={this.value} onInput={(event) => this.handleChange(event)} />
+          <b>Create Tasks. A new line creates a new task.</b>
+          <br />
+          <textarea value={this.value} onChange={(event) => this.handleChange(event.target)} />
+          <br />
         </label>
-        <input type="submit" value="Submit" />
-
-        <br />
-        { this.value }
+        <footer-component name="Submit" />
+        {this.taskList.map((task) => {
+          return (
+            <p> { task } </p>
+          )
+        })}
       </form>
 
-        <stencil-route-link url={`/app-scope-task/${projectName}/${this.value}`}>
+        <stencil-route-link url={`/app-scope-task/${projectName}/${this.taskList}`}>
           <footer-component name="NEXT"></footer-component>
         </stencil-route-link>
       </div>
