@@ -8,7 +8,7 @@ var io = require('socket.io')(http);
 app.use(serveStatic(path.join(__dirname, '../www'), {
 }))
 
-app.get('/', (req, res) => {
+app.get('/**', (req, res) => {
   res.sendFile(path.join(__dirname, '../www', 'index.html'));
 });
 
