@@ -1,4 +1,4 @@
-import { Component, Prop, Listen } from '@stencil/core';
+import { Component, Prop, Listen, Event, State } from '@stencil/core';
 
 
 @Component({
@@ -8,11 +8,11 @@ import { Component, Prop, Listen } from '@stencil/core';
 export class AppVotesCounted
 {
   @Prop() match: any;
+  @State() result: Event;
 
   @Listen('onCustomVote')
   log(event){
-    console.log('listening to onCustomVote')
-    console.log(event)
+    this.result = event.detail
   }
 
   render() {
@@ -36,6 +36,10 @@ export class AppVotesCounted
          <votes-counted-component value="7" description=""></votes-counted-component>
          <votes-counted-component value="7" description=""></votes-counted-component>
          <votes-counted-component value="8.75" description=""></votes-counted-component>
+
+          <stencil-route-link url={`/app-results/${projectName}/${this.result}`}>
+            <footer-component name="SUBMIT"></footer-component>
+          </stencil-route-link>
       </div>
     );
   }
