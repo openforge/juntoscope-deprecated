@@ -15,13 +15,14 @@ app.get('/**', (req, res) => {
 io.on('connection', function (socket) {
   console.log('a user connected!');
 
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
-
   socket.on('tasks', (task) => {
     console.log('task', task)
-    socket.task = task
+    // io.sockets emits to all of the sockets
+    io.sockets.emit('tasks', task);
+  });
+
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
   });
 });
 

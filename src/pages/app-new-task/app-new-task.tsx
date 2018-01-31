@@ -15,14 +15,21 @@ export class AppNewTask {
 
   @State() taskList = [];
 
+  componentDidLoad() {
+    const showTasks = document.getElementById('task-list');
+    connection.on('tasks', function(task){
+      showTasks.innerHTML += task + '<br />'
+    });
+  }
+
   handleSubmit(e) {
     e.preventDefault()
+    connection.emit('tasks', this.taskList);
   }
 
   handleChange(event) {
-    this.value = event.value
-    this.taskList = this.value.split('\n');
-    connection.emit('tasks', this.taskList)
+    this.value = event.value.split('\n');
+    this.taskList = [...this.value];
   }
 
   render() {
@@ -40,11 +47,8 @@ export class AppNewTask {
           <br />
         </label>
         <footer-component name="Submit" />
-        {this.taskList.map((task) => {
-          return (
-            <p> { task } </p>
-          )
-        })}
+
+        <div id="task-list"></div>
       </form>
 
         <stencil-route-link url={`/app-scope-task/${projectName}/${this.taskList}`}>
