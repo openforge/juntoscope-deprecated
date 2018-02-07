@@ -1,4 +1,5 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop, State } from '@stencil/core';
+import { connection } from './../../connection'
 
 @Component({
   tag: 'vote-counter-component',
@@ -7,12 +8,19 @@ import { Component, Prop } from '@stencil/core';
 
 export class VoteCounterComponent {
 
-  @Prop() votes: string;
+  @Prop() votes: any;
+  @State() totalUsersInRoom: any;
+
+  componentDidLoad() {
+    connection.on('projectData', data => {
+      this.totalUsersInRoom = data.users
+    });
+  }
 
   render(){
     return (
       <div>
-        { this.votes } / 7
+        { this.votes } / {this.totalUsersInRoom}
         <div>votes counted</div>
       </div>
     )

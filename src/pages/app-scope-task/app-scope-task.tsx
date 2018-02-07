@@ -1,4 +1,5 @@
 import { Component, State, Prop } from '@stencil/core';
+import { connection } from './../../connection'
 
 @Component({
   tag: 'app-scope-task',
@@ -6,33 +7,46 @@ import { Component, State, Prop } from '@stencil/core';
 })
 export class ScopeTask
 {
-  @State() hours: string;
   @Prop() match: any;
+  @State() numUsersInRoom: any;
+  projectName: string;
+  value: any;
+
+  componentDidLoad() {
+    this.projectName = this.match.params.value
+
+    connection.emit("joinRoom", this.projectName);
+  }
 
   handleChange(event) {
-    this.hours = event.target.value
+    this.value = event.target.value;
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    connection.emit("votes", this.value)
   }
 
   render() {
-    const projectName = this.match.params.name
-    const task = this.match.params.value
+    const taskList = this.match.params.value
 
     return (
       <div>
-        <header-component projectName={projectName}></header-component>
+        <header-component projectName={this.projectName}></header-component>
 
-        <form>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
           <label><b>Scope Task:</b></label>
-          <p>{ task }</p>
+          <p>{ taskList }</p>
           <br/>
 
-          <input type="number" placeholder="scope task" value={this.hours} onInput={() => this.handleChange(event)}/>
-          <button>hours</button>
+          <input placeholder="scope task" onChange={event => this.handleChange(event)}/>
+          <footer-component name="Submit" />
         </form>
-        <vote-counter-component votes="5"></vote-counter-component>
 
-        <stencil-route-link url={`/app-votes-counted/${projectName}/${task}`}>
-         <footer-component name="SUBMIT"></footer-component>
+        <vote-counter-component votes={this.numUsersInRoom}></vote-counter-component>
+
+        <stencil-route-link url={`/app-votes-counted/${this.projectName}/${taskList}`}>
+         {/* <footer-component name="SUBMIT" onClick={() => this.persistVote()}></footer-component> */}
         </stencil-route-link>
       </div>
     );
