@@ -1,3 +1,5 @@
+const sass = require('@stencil/sass')
+
 exports.config = {
   bundles: [
     { components: ['my-app', 'app-home'] },
@@ -5,6 +7,9 @@ exports.config = {
   ],
   collections: [
     { name: '@stencil/router' }
+  ],
+  plugins: [
+    sass()
   ]
 };
 

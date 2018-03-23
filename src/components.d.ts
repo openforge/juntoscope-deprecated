@@ -3,8 +3,277 @@
  * It contains typing information for all components that exist in this project
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
+declare global {
+  namespace JSX {
+    interface Element {}
+    export interface IntrinsicElements {}
+  }
+  namespace JSXElements {}
 
-import '@stencil/router';
+  interface HTMLStencilElement extends HTMLElement {
+    componentOnReady(): Promise<this>;
+    componentOnReady(done: (ele?: this) => void): void;
+
+    forceUpdate(): void;
+  }
+
+  interface HTMLAttributes {}
+}
+
+
+
+
+import {
+  FooterComponent as FooterComponent
+} from './components/footer-component/footer-component';
+
+declare global {
+  interface HTMLFooterComponentElement extends FooterComponent, HTMLStencilElement {
+  }
+  var HTMLFooterComponentElement: {
+    prototype: HTMLFooterComponentElement;
+    new (): HTMLFooterComponentElement;
+  };
+  interface HTMLElementTagNameMap {
+    'footer-component': HTMLFooterComponentElement;
+  }
+  interface ElementTagNameMap {
+    'footer-component': HTMLFooterComponentElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'footer-component': JSXElements.FooterComponentAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface FooterComponentAttributes extends HTMLAttributes {
+      'name'?: string;
+      
+    }
+  }
+}
+
+
+import {
+  HeaderComponent as HeaderComponent
+} from './components/header-component/header-component';
+
+declare global {
+  interface HTMLHeaderComponentElement extends HeaderComponent, HTMLStencilElement {
+  }
+  var HTMLHeaderComponentElement: {
+    prototype: HTMLHeaderComponentElement;
+    new (): HTMLHeaderComponentElement;
+  };
+  interface HTMLElementTagNameMap {
+    'header-component': HTMLHeaderComponentElement;
+  }
+  interface ElementTagNameMap {
+    'header-component': HTMLHeaderComponentElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'header-component': JSXElements.HeaderComponentAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface HeaderComponentAttributes extends HTMLAttributes {
+      'logo'?: string;
+      'projectName'?: any;
+      
+    }
+  }
+}
+
+
+import {
+  VoteCounterComponent as VoteCounterComponent
+} from './components/vote-counter-component/vote-counter-component';
+
+declare global {
+  interface HTMLVoteCounterComponentElement extends VoteCounterComponent, HTMLStencilElement {
+  }
+  var HTMLVoteCounterComponentElement: {
+    prototype: HTMLVoteCounterComponentElement;
+    new (): HTMLVoteCounterComponentElement;
+  };
+  interface HTMLElementTagNameMap {
+    'vote-counter-component': HTMLVoteCounterComponentElement;
+  }
+  interface ElementTagNameMap {
+    'vote-counter-component': HTMLVoteCounterComponentElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'vote-counter-component': JSXElements.VoteCounterComponentAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface VoteCounterComponentAttributes extends HTMLAttributes {
+      'votes'?: string;
+      
+    }
+  }
+}
+
+
+import {
+  VotesCountedComponent as VotesCountedComponent
+} from './components/votes-counted-component/votes-counted-component';
+
+declare global {
+  interface HTMLVotesCountedComponentElement extends VotesCountedComponent, HTMLStencilElement {
+  }
+  var HTMLVotesCountedComponentElement: {
+    prototype: HTMLVotesCountedComponentElement;
+    new (): HTMLVotesCountedComponentElement;
+  };
+  interface HTMLElementTagNameMap {
+    'votes-counted-component': HTMLVotesCountedComponentElement;
+  }
+  interface ElementTagNameMap {
+    'votes-counted-component': HTMLVotesCountedComponentElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'votes-counted-component': JSXElements.VotesCountedComponentAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface VotesCountedComponentAttributes extends HTMLAttributes {
+      'description'?: string;
+      'isCustom'?: boolean;
+      'value'?: any;
+      'onOnCustomVote'?: (event: CustomEvent) => void;
+    }
+  }
+}
+
+
+import {
+  AppHome as AppHome
+} from './pages/app-home/app-home';
+
+declare global {
+  interface HTMLAppHomeElement extends AppHome, HTMLStencilElement {
+  }
+  var HTMLAppHomeElement: {
+    prototype: HTMLAppHomeElement;
+    new (): HTMLAppHomeElement;
+  };
+  interface HTMLElementTagNameMap {
+    'app-home': HTMLAppHomeElement;
+  }
+  interface ElementTagNameMap {
+    'app-home': HTMLAppHomeElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'app-home': JSXElements.AppHomeAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppHomeAttributes extends HTMLAttributes {
+      
+      
+    }
+  }
+}
+
+
+import {
+  AppNewTask as AppNewTask
+} from './pages/app-new-task/app-new-task';
+
+declare global {
+  interface HTMLAppNewTaskElement extends AppNewTask, HTMLStencilElement {
+  }
+  var HTMLAppNewTaskElement: {
+    prototype: HTMLAppNewTaskElement;
+    new (): HTMLAppNewTaskElement;
+  };
+  interface HTMLElementTagNameMap {
+    'app-new-task': HTMLAppNewTaskElement;
+  }
+  interface ElementTagNameMap {
+    'app-new-task': HTMLAppNewTaskElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'app-new-task': JSXElements.AppNewTaskAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppNewTaskAttributes extends HTMLAttributes {
+      'match'?: any;
+      'projectLink'?: string;
+      
+    }
+  }
+}
+
+
+import {
+  AppProject as AppProject
+} from './pages/app-project/app-project';
+
+declare global {
+  interface HTMLAppProjectElement extends AppProject, HTMLStencilElement {
+  }
+  var HTMLAppProjectElement: {
+    prototype: HTMLAppProjectElement;
+    new (): HTMLAppProjectElement;
+  };
+  interface HTMLElementTagNameMap {
+    'app-project': HTMLAppProjectElement;
+  }
+  interface ElementTagNameMap {
+    'app-project': HTMLAppProjectElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'app-project': JSXElements.AppProjectAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppProjectAttributes extends HTMLAttributes {
+      'match'?: any;
+      'projectLink'?: string;
+      
+    }
+  }
+}
+
+
+import {
+  ScopeTask as AppScopeTask
+} from './pages/app-scope-task/app-scope-task';
+
+declare global {
+  interface HTMLAppScopeTaskElement extends AppScopeTask, HTMLStencilElement {
+  }
+  var HTMLAppScopeTaskElement: {
+    prototype: HTMLAppScopeTaskElement;
+    new (): HTMLAppScopeTaskElement;
+  };
+  interface HTMLElementTagNameMap {
+    'app-scope-task': HTMLAppScopeTaskElement;
+  }
+  interface ElementTagNameMap {
+    'app-scope-task': HTMLAppScopeTaskElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'app-scope-task': JSXElements.AppScopeTaskAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppScopeTaskAttributes extends HTMLAttributes {
+      'match'?: any;
+      
+    }
+  }
+}
 
 
 import {
@@ -12,27 +281,60 @@ import {
 } from './pages/app-votes-counted/app-votes-counted';
 
 declare global {
-  interface HTMLAppVotesCountedElement extends AppVotesCounted, HTMLElement {
+  interface HTMLAppVotesCountedElement extends AppVotesCounted, HTMLStencilElement {
   }
   var HTMLAppVotesCountedElement: {
     prototype: HTMLAppVotesCountedElement;
     new (): HTMLAppVotesCountedElement;
   };
   interface HTMLElementTagNameMap {
-    "app-votes-counted": HTMLAppVotesCountedElement;
+    'app-votes-counted': HTMLAppVotesCountedElement;
   }
   interface ElementTagNameMap {
-    "app-votes-counted": HTMLAppVotesCountedElement;
+    'app-votes-counted': HTMLAppVotesCountedElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "app-votes-counted": JSXElements.AppVotesCountedAttributes;
+      'app-votes-counted': JSXElements.AppVotesCountedAttributes;
     }
   }
   namespace JSXElements {
     export interface AppVotesCountedAttributes extends HTMLAttributes {
-      match?: any;
+      'match'?: any;
+      
     }
   }
 }
 
+
+import {
+  MyApp as MyApp
+} from './pages/my-app/my-app';
+
+declare global {
+  interface HTMLMyAppElement extends MyApp, HTMLStencilElement {
+  }
+  var HTMLMyAppElement: {
+    prototype: HTMLMyAppElement;
+    new (): HTMLMyAppElement;
+  };
+  interface HTMLElementTagNameMap {
+    'my-app': HTMLMyAppElement;
+  }
+  interface ElementTagNameMap {
+    'my-app': HTMLMyAppElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'my-app': JSXElements.MyAppAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface MyAppAttributes extends HTMLAttributes {
+      
+      
+    }
+  }
+}
+
+declare global { namespace JSX { interface StencilJSX {} } }
