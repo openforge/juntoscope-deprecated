@@ -1,3 +1,6 @@
+# juntoscope
+A project build with Stencil.js!
+
 ## Getting Started
 
 Clone this repository:
@@ -45,9 +48,6 @@ To run the unit tests and watch for file changes during development, run:
 ```
 npm run test.watch
 ```
-
-# juntoscope
-A project build with Stencil.js!
 
 ## Development
 
